@@ -1,0 +1,97 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="bgded overlay" style="background-image:url('demo/backgrounds/seba.jpg');">
+    <div class="wrapper row3">
+        <main class="hoc container clear">
+            <!-- main body -->
+            <!-- ################################################################################################ -->
+            <div id="comments">
+                <h1 style="font-size:25px"> Recent Events Organized</h1>
+                <p><b>NGO Name </b> : {{ngo.ngo_name}}</p>
+                <p><b>NGO Mission </b> : {{ngo.mission}}</p>
+                <ul>
+                    {% for event in events %}
+                    <li>
+                        <article>
+                            <header>
+                                <figure class="avatar"><img src="../images/demo/avatar.png" alt=""></figure>
+                                <address>
+                                    Event Name: <a href="#">{{event.event_name}}</a>
+                                </address>
+
+                                <p style="font-size:13px"> <b>Event Date </b> : {{event.event_date}}</p>
+                            </header>
+                            <div class="comcont">
+                                <p><b>Name of Tree Saplings Planted </b> : {{event.tree_name}}</p>
+                                <p><b>Total Saplings Planted </b> : {{event.trees_planted}}</p>
+                                <!-- <p><b>Event Date </b> : {{event.event}}</p>
+                                <p><b>Event Date </b> : {{event.event_date}}</p> -->
+                            </div>
+                        </article>
+                    </li>
+                    {% endfor %}
+
+                    <!-- <li>
+                        <article>
+                            <header>
+                                <figure class="avatar"><img src="../images/demo/avatar.png" alt=""></figure>
+                                <address>
+                                    By <a href="#">A Name</a>
+                                </address>
+                                <time datetime="2045-04-06T08:15+00:00">Friday, 6<sup>th</sup> April 2045
+                                    @08:15:00</time>
+                            </header>
+                            <div class="comcont">
+                                <p>This is an example of a comment made on a post. You can either edit the
+                                    comment,
+                                    delete the comment
+                                    or reply to the comment. Use this as a place to respond to the post or to
+                                    share
+                                    what you are
+                                    thinking.</p>
+                            </div>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <header>
+                                <figure class="avatar"><img src="../images/demo/avatar.png" alt=""></figure>
+                                <address>
+                                    By <a href="#">A Name</a>
+                                </address>
+                                <time datetime="2045-04-06T08:15+00:00">Friday, 6<sup>th</sup> April 2045
+                                    @08:15:00</time>
+                            </header>
+                            <div class="comcont">
+                                <p>This is an example of a comment made on a post. You can either edit the
+                                    comment,
+                                    delete the comment
+                                    or reply to the comment. Use this as a place to respond to the post or to
+                                    share
+                                    what you are
+                                    thinking.</p>
+                            </div>
+                        </article>
+                    </li> -->
+                </ul>
+            </div>
+            <!-- ################################################################################################ -->
+    </div>
+    <!-- ################################################################################################ -->
+    <!-- / main body -->
+    <div class="clear"></div>
+    </main>
+</div>
+<!-- ################################################################################################ -->
+
+
+</div>
+
+
+
+
+
+
+{% endblock content %}

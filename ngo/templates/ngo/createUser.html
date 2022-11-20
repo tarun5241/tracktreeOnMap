@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="login-box">
+    <h2>REGISTER YOUR NGO</h2>
+    <form method="post" action="{% url 'create-user' %}">
+        {% csrf_token %}
+        <div class="user-box">
+            <input type="text" name="username" required="">
+            <label>Username</label>
+        </div>
+        <div class="user-box">
+            <input type="email" name="email" required="">
+            <label>Email</label>
+        </div>
+
+        <div class="user-box">
+            <input type="password" name="password" required="">
+            <label>Password</label>
+        </div>
+        <a href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <input class="btn btn--sub btn--lg  my-md" type="submit" value="Submit" />
+            <!-- <a href="{% url 'register' user.id %}">already done </a> -->
+        </a>
+    </form>
+</div>
+
+
+
+{% endblock content %}

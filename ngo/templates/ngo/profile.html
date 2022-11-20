@@ -1,0 +1,168 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="bgded overlay" style="background-image:url('demo/backgrounds/seba.jpg');">
+    <section class="hoc container clear">
+        <!-- ################################################################################################ -->
+        <div class="sectiontitle">
+            <p class="nospace font-xs">
+                Odisha Government
+            </p>
+            <h6 class="heading" style="font-size:25px">NGO PROFILE</h6>
+        </div>
+        <article id="points" class="group">
+            <div class="two_third first">
+                <p class="nospace font-xs">
+                    NGO Name
+                </p>
+                <h6 class="heading">{{ngo.ngo_name}}</h6>
+                <p class="nospace font-xs">
+                    Username :
+                </p>
+                <p>{{ngo.name}}</p>
+
+                <p class="nospace font-xs">
+                    Email :
+                </p>
+                <p>{{ngo.email}}</p>
+                <p class="nospace font-xs">
+                    Date of Registeration :
+                </p>
+                <p>{{ngo.created}}</p>
+                <p class="nospace font-xs">
+                    Mission / Objective
+                </p>
+                <p>{{ngo.mission}}</p>
+                <p class="nospace font-xs">
+                    NGO Head Quarters Location :
+                </p>
+                <p>{{ngo.address}}</p>
+                <p class="nospace font-xs">
+                    Total Joined Members :
+                </p>
+                <p>{{ngo.total_member}}</p>
+
+                <footer>
+                    <ul class="nospace inline pushright">
+                        <form action="{% url 'create-event' ngo.id %}" method="post">
+                            {% csrf_token %}
+                            <li>
+                                <p style="width:max-content"> <b> Add Tree Saplings Plantation Event/Campaign </b></p>
+
+                                <button type="submit" class="btn" style="width:max-content">Add Event /
+                                    Campaign</button>
+                            </li>
+                            <!-- <li><a class="btn inverse" href="#">Egestas</a></li> -->
+                        </form>
+                    </ul>
+                </footer>
+
+
+
+                <ul class="nospace group">
+
+
+                    <!-- 
+                    <li><span>3</span> Sed commodo bibendum justo</li>
+                    <li><span>4</span> Sed pretium elit sed</li>
+                    <li><span>5</span> Nisi aliquam dolor urna</li>
+                    <li><span>6</span> Interdum ut dignissim eget</li>
+                    <li><span>7</span> Sagittis eget eros integer</li>
+                    <li><span>8</span> Velit mi facilisis eget</li>  -->
+                </ul>
+            </div>
+            <div class="one_third last"><a class="imgover" href="#"><img src="demo/348x394.png" alt=""></a></div>
+        </article>
+        <!-- ################################################################################################ -->
+    </section>
+
+    <!-- ################################################################################################ -->
+    <div class="wrapper row3">
+        <main class="hoc container clear">
+            <!-- main body -->
+            <!-- ################################################################################################ -->
+            <div id="comments">
+                <h1 style="font-size:35px">Recent Events organized </h1>
+                <ul>
+                    {% for event in events %}
+                    <li>
+                        <article>
+                            <header>
+                                <figure class="avatar"><img src="../images/demo/avatar.png" alt=""></figure>
+                                <address>
+                                    Event Name: <a href="#">{{event.event_name}}</a>
+                                </address>
+
+                                <p style="font-size:13px"> <b>Event Date </b> : {{event.event_date}}</p>
+                            </header>
+                            <div class="comcont">
+                                <p><b>Event Date </b> : {{event.tree_name}}</p>
+                                <p><b>Event Date </b> : {{event.trees_planted}}</p>
+                                <!-- <p><b>Event Date </b> : {{event.event}}</p>
+                                <p><b>Event Date </b> : {{event.event_date}}</p> -->
+                            </div>
+                        </article>
+                    </li>
+                    {% endfor %}
+
+                    <!-- <li>
+                        <article>
+                            <header>
+                                <figure class="avatar"><img src="../images/demo/avatar.png" alt=""></figure>
+                                <address>
+                                    By <a href="#">A Name</a>
+                                </address>
+                                <time datetime="2045-04-06T08:15+00:00">Friday, 6<sup>th</sup> April 2045
+                                    @08:15:00</time>
+                            </header>
+                            <div class="comcont">
+                                <p>This is an example of a comment made on a post. You can either edit the
+                                    comment,
+                                    delete the comment
+                                    or reply to the comment. Use this as a place to respond to the post or to
+                                    share
+                                    what you are
+                                    thinking.</p>
+                            </div>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <header>
+                                <figure class="avatar"><img src="../images/demo/avatar.png" alt=""></figure>
+                                <address>
+                                    By <a href="#">A Name</a>
+                                </address>
+                                <time datetime="2045-04-06T08:15+00:00">Friday, 6<sup>th</sup> April 2045
+                                    @08:15:00</time>
+                            </header>
+                            <div class="comcont">
+                                <p>This is an example of a comment made on a post. You can either edit the
+                                    comment,
+                                    delete the comment
+                                    or reply to the comment. Use this as a place to respond to the post or to
+                                    share
+                                    what you are
+                                    thinking.</p>
+                            </div>
+                        </article>
+                    </li> -->
+                </ul>
+            </div>
+            <!-- ################################################################################################ -->
+    </div>
+    <!-- ################################################################################################ -->
+    <!-- / main body -->
+    <div class="clear"></div>
+    </main>
+</div>
+</section>
+</div>
+
+
+
+
+
+
+{% endblock content %}

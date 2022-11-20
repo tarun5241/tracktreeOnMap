@@ -1,0 +1,159 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- Top Background Image Wrapper -->
+<div class="bgded overlay padtop" style="background-image:url('demo/backgrounds/seba.jpg');">
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <div id="pageintro" class="hoc clear">
+    <!-- ################################################################################################ -->
+    <article>
+      <h3 class="heading">Smart Odisha Hackathon</h3>
+      <p>It is heartening to see the people of Odisha showing a lot of interest in planting saplings across the state.
+        People typically do this during various occasions and especially during the rainy season. Government as well as
+        non-governmental organizations and institutions also do this during various events. Government organizations
+        distribute saplings at a nominal cost to individuals and institutions to encourage tree planting. With all this,
+        a significant number of saplings are planted every year.</p>
+
+      <p> A sapling needs attention and protection against grazing, dry conditions, and hazards of other biotic and
+        abiotic factors. They also need watering and manure from time to time. However, due to lack of care and support
+        many of these saplings die long before they become a tree. </p>
+      {% if request.user.is_authenticated %}
+      {% else %}
+      <footer>
+        <ul class="nospace inline pushright">
+          <li><a class="btn" href="{% url 'create-user' %}">Register</a></li>
+          <li><a class="btn" href="{% url 'login' %}">Login</a></li>
+        </ul>
+      </footer>
+      {% endif %}
+
+
+
+    </article>
+    <!-- ################################################################################################ -->
+  </div>
+  <!-- ################################################################################################ -->
+</div>
+<!-- End Top Background Image Wrapper -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+{% if request.user.is_authenticated %}
+{% else %}
+<div class="wrapper row3">
+  <main class="hoc container clear">
+    <!-- main body -->
+    <!-- ################################################################################################ -->
+    <section id="services">
+      <div class="sectiontitle">
+        <h6 class="heading">Our Partner Organizations </h6>
+      </div>
+      <ul class="nospace group grid-3">
+        {% for ngo in ngos %}
+        <li class="one_third">
+          <article><a href="#"><i class="fas fa-address-book"></i></a>
+            <h6 class="heading">{{ngo.ngo_name}}</h6>
+            <p>{{ngo.mission|slice:"100"}}</p>
+            <footer><a href="{% url 'profile' ngo.id %}">More Details &raquo;</a></footer>
+          </article>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+    <!-- / main body -->
+    <div class="clear"></div>
+  </main>
+</div>
+{% endif %}
+
+
+
+
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row2">
+  <section class="hoc container clear">
+    <!-- ################################################################################################ -->
+    <div class="sectiontitle">
+
+      <h6 class="heading" style="font-size: 25px;"><b>How to Plant a Sapling</b></h6>
+    </div>
+    <p style="text-align: center;;"><b>“Plants are like people. When they get proper nutrition, they look happy and
+        healthy. But if they look dry and
+        withered, they may need more care.”</b> - Vishweshwar, Gardener, WWF-India</p>
+
+
+
+
+
+    <article id="points" class="group">
+      <div class="two_third first">
+
+
+
+
+        <ul class="nospace group">
+
+          <li><span>1</span><b> Register and collect saplings - </b>here’s a list of places you can collect
+            saplings
+            from.</li>
+          <li><span>2</span> <b> Select an area where you would plant the sapling – </b> try to choose an open area
+            that is easily
+            accessible and near
+            you – this way you would be able to watch over the little sapling, helping it grow into a tree! This area
+            should
+            be away from building sites and other kinds of obstructions.</li>
+
+          </li>
+          <li><span>3</span> <b>Dig out - </b>dig a deep and wide pit in the ground, two to three times the size of
+            the
+            root
+            ball of the sapling.
+          </li>
+          <li><span>4</span> <b>Plant the sapling - </b>gently remove the plastic wrapping/shield from the root ball
+            and
+            place the plant gently into
+            the center of the pit. Be careful not to drop the plant!</li>
+          <li><span>5</span> <b>Fill the pit with soil -</b> once the sapling is in place, hold it firmly with one
+            hand and
+            gently but evenly fill
+            the pit with soil.</li>
+
+          <li><span>6</span><b> Water the sapling - </b>once the pit is covered, pour some water to moisten the soil.
+            Make
+            sure the top soil is
+            neither too dry nor too wet!</li>
+          <li><span>7</span> <b>Feed your plant - </b>regularly water the plant, provide manure when need be and weed
+            out
+            unwanted growth whenever
+            you notice it.</li>
+        </ul>
+
+        <!-- <div class="one_third last"><a class="imgover" href="#"><img src="demo/348x394.png" alt=""></a></div> -->
+    </article>
+
+
+    <!-- ################################################################################################ -->
+  </section>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+
+{% include 'footer.html' %}
+{% endblock content %}

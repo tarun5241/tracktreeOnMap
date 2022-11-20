@@ -1,0 +1,50 @@
+{% load static %}
+
+
+
+<header id="header" class="hoc clear">
+    <div id="logo" class="fl_left">
+        <!-- ################################################################################################ -->
+        <h1><a href="{% url 'index' %}">OUTR</a></h1>
+        <!-- ################################################################################################ -->
+    </div>
+    <nav id="mainav" class="fl_right">
+        <!-- ################################################################################################ -->
+        <ul class="clear">
+            <li class="active"><a href="{% url 'index' %}">Home</a></li>
+
+            <!--<li><a class="drop" href="#">Dropdown</a>
+                <ul>
+                    <li><a href="#">Level 2</a></li>
+                    <li><a class="drop" href="#">Level 2 + Drop</a>
+                        <ul>
+                            <li><a href="#">Level 3</a></li>
+                            <li><a href="#">Level 3</a></li>
+
+                        </ul>
+                    </li>
+                    <li><a href="#">Level 2</a></li>
+                </ul>
+            </li> -->
+
+
+
+            {% if request.user.is_authenticated %}
+            <li><a class="drop" href="#">Manage Events</a>
+                <ul>
+                    <li><a href="{% url 'create-event' user.id %}">Add Event/Campaign</a></li>
+                    <li><a href="{% url 'event' user.id %}">Recent Events</a></li>
+                    <li><a href="{% url 'map' user.id %}">Locate Events on Map</a></li>
+                </ul>
+            </li>
+            <li><a href="{% url 'register' user.id %}">Register NGO</a></li>
+            <li><a href="{% url 'profile' user.id %}">Profile</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+            <li><a href="{% url 'create-user' %}">Register</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+            {% endif %}
+        </ul>
+        <!-- ################################################################################################ -->
+    </nav>
+</header>

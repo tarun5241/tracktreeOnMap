@@ -1,0 +1,50 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="login-box">
+    <h2>REGISTER YOUR NGO</h2>
+    <form method="post" action="{% url 'create-ngo' user.id %}">
+        {% csrf_token %}
+        <div class="user-box">
+            <p>Username : {{user.name}}</p>
+            <!-- <label>Username <small>(please use type same as before)</small> </label> -->
+        </div>
+        <div class="user-box">
+            <input type="text" value="{{user.ngo_name}}" name="ngo_name" required="">
+            <label>Name of NGO</label>
+        </div>
+        <div class="user-box">
+            <input type="email" value="{{user.email}}" name="email" required="">
+            <label>Email</label>
+        </div>
+
+        <div class="user-box">
+            <textarea name="mission" class="validate[required,length[6,300]] feedback-input" id="comment"
+                value="{{user.mission}}" placeholder="Write Your NGO's Mission/Objective"></textarea>
+        </div>
+        <div class="user-box">
+            <textarea name="address" class="validate[required,length[6,300]] feedback-input" id="comment"
+                value="{{user.address}}" placeholder="Address of Ngo Head Office"></textarea>
+        </div>
+        <div class="user-box">
+            <input type="number" name="total_member" value="{{user.total_member}}" required="">
+            <label>Total No Of Members in NGO</label>
+        </div>
+        <!-- <div class="user-box">
+            <input type="password" name="pass" required="">
+            <label>Password</label>
+        </div> -->
+        <a href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <input class="btn btn--sub btn--lg  my-md" type="submit" value="Submit" />
+        </a>
+    </form>
+</div>
+
+
+
+{% endblock content %}
