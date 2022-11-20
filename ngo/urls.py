@@ -22,7 +22,8 @@ urlpatterns = [
     
     path('map/<str:pk>/', views.map, name='map'),
     path('create-event/<str:pk>/', views.createEvent , name='create-event'),
+    
     path('add-event/<str:pk>/', views.addEvent , name='add-event'),
     path('event/<str:pk>/', views.event , name='event'),
-    # path('delete-project/<str:pk>/', views.deleteProject , name='delete-project')
+   
 ]
