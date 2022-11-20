@@ -78,7 +78,7 @@ def index(request):
     context = { 'ngos' : ngos }
     return render(request, 'ngo/index.html',context)
 
-@login_required(login_url='index')
+@login_required(login_url='login')
 def ngoProfile(request,pk):
     # user = User.objects.get(id=pk)
     ngo = Ngo.objects.get(id=pk)
@@ -132,7 +132,7 @@ def createUser(request):
         return redirect('signup')
 
 
-@login_required(login_url='index')
+@login_required(login_url='login')
 def createNgo(request,pk):
     ngo = Ngo.objects.get(id=pk)
     if request.method == 'POST':
