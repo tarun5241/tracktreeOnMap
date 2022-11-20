@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-l-!*ovrej0-=%6=1kvi^k^bh$62rcpb_0+87#ia5*afq=2ge@b
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1','https://tracktrees.herokuapp.com/']
 
 
 # Application definition
